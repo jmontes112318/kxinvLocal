@@ -1,31 +1,37 @@
 <?php
-
-
-
 include 'database.php';
-// $usuario = $_POST['usuario'];
 
-$query = "SELECT id,codigo,lote,descripcion,stock,costo_und,ubicacion,ubicacion2,pasillo,estante,alterno,cant_ingresada, (cant_ingresada-stock) as inconsistencia,bodega
-FROM productos
- HAVING inconsistencia <>0 
- ORDER BY ubicacion asc
- ";
-$result = mysqli_query($connection, $query);
-$filas = mysqli_num_rows($result);
+if (empty($_POST['bodegaRegEst']) && empty($_POST['pasilloregEst'])) {
 
-if ($filas) {
+    $query = "SELECT DISTINCTROW pasillo,estante FROM productos";
+    $result = mysqli_query($connection, $query);
+} elseif (!empty($_POST['bodegaRegEst']) && empty($_POST['pasilloregEst'])) {
 
-    while ($data = mysqli_fetch_assoc($result)) {
+    $bodResEst = $_POST['bodegaRegEst'];
 
-        $arreglo["data"][] = $data;
-    }
-
-
-    echo  json_encode($arreglo);
-} else {
-    echo "0";
+    $query = "SELECT DISTINCTROW pasillo,estante FROM `productos` where bodega ='$bodResEs'";
+    $result = mysqli_query($connection, $query);
 }
 
 
-mysqli_free_result($result);
-mysqli_close($connection);
+
+
+$query = "SELECT DISTINCTROW pasillo,estante FROM `productos` where bodega ='501'";
+$result = mysqli_query($connection, $query);
+$filas = mysqli_num_rows($result);
+
+if (!$result) {
+    die("Error");
+}
+
+$json = array();
+while ($row = mysqli_fetch_array($result)) {
+
+    $json[] = array(
+        'pasillo' => $row['pasillo'],
+        'estante' => $row['estante'],
+    );
+}
+
+$jsonString = json_encode($json);
+echo $jsonString;

@@ -1529,7 +1529,7 @@ if (!isset($_SESSION['usuario'])) {
 
                             <div class="col-sm-12 col-md-4 col-lg-4 ">
                               <div class="input-group input-group-sm ">
-                                <input type="text" id="pasilloregEst" name="pasilloregEst" class="form-control " placeholder="Pasillo">
+                                <input type="text" id="pasilloregEst" name="pasilloRegEst" class="form-control " placeholder="Pasillo">
                               </div>
                             </div>
 
@@ -1560,7 +1560,7 @@ if (!isset($_SESSION['usuario'])) {
 
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tblPasilloEstantes">
 
                         </tbody>
                       </table>

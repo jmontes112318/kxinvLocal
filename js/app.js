@@ -986,16 +986,16 @@ $(document).ready(function () {
     });
   });
 
-  function listarRegistros() {
+  function listarEstantes() {
     let bodegaRegEst = $("#bodegaRegEst").val();
-    let pasilloregEst = $("#pasilloregEst").val();
+    let pasilloRegEst = $("#pasilloRegEst").val();
 
     $.ajax({
-      url: "listarRegistros.php",
+      url: "consultaEstantes.php",
       type: "POST",
       data: {
-        usuario: usuario,
-        perfil: perfil,
+        bodegaRegEst: bodegaRegEst,
+        pasilloRegEst: pasilloRegEst,
       },
       success: function (response) {
         registros = JSON.parse(response);
@@ -1004,30 +1004,17 @@ $(document).ready(function () {
 
         registros.forEach((regist) => {
           template += `
-          <tr idRegistro=${regist.id}>
-          <td>${regist.usuario}</td>
-          <td>${regist.codigo}</td>
+          <tr >
+          <td>${regist.pasillo}</td>
+          <td>${regist.estante}</td>
           <td>${regist.lote}</td>
-          <td>
-              <a class="editCatidad" href="#" data-toggle="modal" data-target="#modificarCantidad">${regist.cantidad}</a>        
-          </td>
-        
-          <td>${regist.descripcion}</td>
-          <td>${regist.barra}</td>
-          <td>${regist.ubicacion}</td>
-          <td>${regist.conteo}</td>              
-          
-              <td>
-                <button class="eliminarRegistro btn btn-danger">
-                  eliminar 
-                </button>
-              </td> 
+           
               
           </tr>
            `;
         });
 
-        $("#tblResumen").html(template);
+        $("#tblPasilloEstantes").html(template);
         // console.log(registros);
       },
     });

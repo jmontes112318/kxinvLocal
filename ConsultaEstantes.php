@@ -9,14 +9,14 @@ if (empty($_POST['bodegaRegEst']) && empty($_POST['pasilloregEst'])) {
 
     $bodResEst = $_POST['bodegaRegEst'];
 
-    $query = "SELECT DISTINCTROW pasillo,estante FROM `productos` where bodega ='$bodResEs'";
+    $query = "SELECT DISTINCTROW pasillo,estante FROM `productos` WHERE bodega ='$bodResEs'";
     $result = mysqli_query($connection, $query);
 }
 
 
 
 
-$query = "SELECT DISTINCTROW pasillo,estante FROM `productos` where bodega ='501'";
+$query = "SELECT DISTINCTROW pasillo,estante FROM `productos` WHERE bodega ='501'";
 $result = mysqli_query($connection, $query);
 $filas = mysqli_num_rows($result);
 

@@ -14,11 +14,12 @@ if (isset($_POST['usuario'])) {
     $lote = $_POST['lote'];
     $idlote = $_POST['idlote'];
     $cantidad = $_POST['cantidad'];
+    $bodega = $_POST['bodega'];
 
 
 
-    $query = "INSERT INTO inventario_registrado(codigo,descripcion,id_lote,lote,cantidad,ubicacion_tomada,cod_barra,usuario,conteo)
-              VALUES('$codigo','$descripcion',$idlote,'$lote',$cantidad,'$ubicacion','$barra','$usuario','$conteo')";
+    $query = "INSERT INTO inventario_registrado(codigo,descripcion,id_lote,lote,cantidad,ubicacion_tomada,cod_barra,usuario,conteo,bodegaReg)
+              VALUES('$codigo','$descripcion',$idlote,'$lote',$cantidad,'$ubicacion','$barra','$usuario','$conteo',$bodega)";
 
 
     $result = mysqli_query($connection, $query);

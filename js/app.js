@@ -209,18 +209,20 @@ $(document).ready(function () {
       lote: $("#reflote").val(),
       cantidad: $("#cantidad").val(),
       barra: $("#barra").val(),
+      bodega: $("#txtBodegaInv").val(),
     };
 
     $.post("registro.php", datosPos, function (response) {
       listarRegistros();
-      $("#inv").DataTable().ajax.reload(null, false);
-      limpiarFrmTomaInv();
-      $("#buscarLote").val("");
       numInconsistencia();
       ValorRegistrado();
       numFaltantes();
       valorDiferencia();
       numItemsSobrantres();
+      $("#inv").DataTable().ajax.reload(null, false);
+      limpiarFrmTomaInv();
+      $("#buscarLote").val("");
+      
     });
   }
 
@@ -387,6 +389,9 @@ $(document).ready(function () {
         numFaltantes();
         valorDiferencia();
         numItemsSobrantres();
+
+     
+       
       }
 
       $ventanaModal.modal("hide");
@@ -985,7 +990,7 @@ $(document).ready(function () {
       }
     });
   });
-
+setTimeout
   // function listarEstantes() {
   //   let bodegaRegEst = $("#bodegaRegEst").val();
   //   let pasilloRegEst = $("#pasilloRegEst").val();

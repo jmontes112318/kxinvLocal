@@ -1622,7 +1622,7 @@ if (!isset($_SESSION['usuario'])) {
                           <h5 class="card-title m-0">Inconsistencias por Lote</h5>
                         </div>
                         <div class="card-body">
-                          <form id="frmInconsistencias" action="http://localhost:8080/kxinv/reporteInconsistencias.php" target="_blank" method="POST" autocomplete="off">
+                          <form id="frmInconsistencias" action="http://localhost:8080/kxinvLocal/reporteInconsistencias.php" target="_blank" method="POST" autocomplete="off">
 
                             <div class="row">
                               <div class="form-group col-xs-12 col-md-4 col-lg-4">
@@ -1697,7 +1697,7 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="card-body">
                           <div class="row">
                             <div class="col-lg-6">
-                              <form action="http://localhost:8080/kxinv/reporteIncoXcantidadSobr.php" target="_blank" autocomplete="off" method="post">
+                              <form action="http://localhost:8080/kxinvLocal/reporteIncoXcantidadSobr.php" target="_blank" autocomplete="off" method="post">
                                 <p class="card-text">Productos Sobrante</p>
                                 <button type="submit" class="btn btn-outline-primary">Imprimir Sobrantes</button>
                               </form>

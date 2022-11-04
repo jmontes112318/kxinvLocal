@@ -986,37 +986,37 @@ $(document).ready(function () {
     });
   });
 
-  function listarEstantes() {
-    let bodegaRegEst = $("#bodegaRegEst").val();
-    let pasilloRegEst = $("#pasilloRegEst").val();
+  // function listarEstantes() {
+  //   let bodegaRegEst = $("#bodegaRegEst").val();
+  //   let pasilloRegEst = $("#pasilloRegEst").val();
 
-    $.ajax({
-      url: "consultaEstantes.php",
-      type: "POST",
-      data: {
-        bodegaRegEst: bodegaRegEst,
-        pasilloRegEst: pasilloRegEst,
-      },
-      success: function (response) {
-        registros = JSON.parse(response);
-        console.log(registros);
-        let template = "";
+  //   $.ajax({
+  //     url: "consultaEstantes.php",
+  //     type: "POST",
+  //     data: {
+  //       bodegaRegEst: bodegaRegEst,
+  //       pasilloRegEst: pasilloRegEst,
+  //     },
+  //     success: function (response) {
+  //       registros = JSON.parse(response);
+  //       console.log(registros);
+  //       let template = "";
 
-        registros.forEach((regist) => {
-          template += `
-          <tr >
-          <td>${regist.pasillo}</td>
-          <td>${regist.estante}</td>
-          <td>${regist.lote}</td>
+  //       registros.forEach((regist) => {
+  //         template += `
+  //         <tr >
+  //         <td>${regist.pasillo}</td>
+  //         <td>${regist.estante}</td>
+  //         <td>${regist.lote}</td>
            
               
-          </tr>
-           `;
-        });
+  //         </tr>
+  //          `;
+  //       });
 
-        $("#tblPasilloEstantes").html(template);
-        // console.log(registros);
-      },
-    });
-  }
+  //       $("#tblPasilloEstantes").html(template);
+  //       // console.log(registros);
+  //     },
+  //   });
+  // }
 }); // fin del ready

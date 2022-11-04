@@ -242,9 +242,19 @@ $(document).ready(function () {
           )
         ) {
           registrarProducto();
+          numInconsistencia();
+          ValorRegistrado();
+          numFaltantes();
+          valorDiferencia();
+          numItemsSobrantres();
         }
       } else {
         registrarProducto();
+        numInconsistencia();
+        ValorRegistrado();
+        numFaltantes();
+        valorDiferencia();
+        numItemsSobrantres();
       }
     });
   });
@@ -1006,17 +1016,17 @@ $(document).ready(function () {
           template += `
           <tr >
           <td>${regist.pasillo}</td>
-          <td>${regist.estante}</td>
-          <td>${regist.lote}</td>
-           
-              
+          <td>${regist.estante}</td>     
+      
           </tr>
            `;
         });
 
         $("#tblPasilloEstantes").html(template);
+
         // console.log(registros);
       },
     });
   }
+  // listarEstantes();
 }); // fin del ready

@@ -4,11 +4,12 @@ include 'database.php';
 if (isset($_POST['eliBodega'])) {
 
     $bodegaEli = $_POST['eliBodega'];
+    // echo $bodegaEli;
 
     $sql = "SELECT * FROM inventario_registrado WHERE bodegaReg ='$bodegaEli'";
     $resultado = mysqli_query($connection, $sql);
     $filas = mysqli_num_rows($resultado);
-    // echo $filas;
+    echo $filas;
 
     if ($filas !== 0) {
 

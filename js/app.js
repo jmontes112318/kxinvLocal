@@ -242,6 +242,7 @@ $(document).ready(function () {
           )
         ) {
           registrarProducto();
+          
         }
       } else {
         registrarProducto();
@@ -980,7 +981,6 @@ $(document).ready(function () {
 
         listarRegistros();
         $("#inv").DataTable().ajax.reload(null, false);
-
         $("#eliBodega").val("");
       }
     });

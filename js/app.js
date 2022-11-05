@@ -209,18 +209,19 @@ $(document).ready(function () {
       lote: $("#reflote").val(),
       cantidad: $("#cantidad").val(),
       barra: $("#barra").val(),
+      bodega: $("#txtBodegaInv").val(),
     };
 
     $.post("registro.php", datosPos, function (response) {
       listarRegistros();
-      $("#inv").DataTable().ajax.reload(null, false);
-      limpiarFrmTomaInv();
-      $("#buscarLote").val("");
       numInconsistencia();
       ValorRegistrado();
       numFaltantes();
       valorDiferencia();
       numItemsSobrantres();
+      $("#inv").DataTable().ajax.reload(null, false);
+      limpiarFrmTomaInv();
+      $("#buscarLote").val("");
     });
   }
 
@@ -242,11 +243,6 @@ $(document).ready(function () {
           )
         ) {
           registrarProducto();
-          numInconsistencia();
-          ValorRegistrado();
-          numFaltantes();
-          valorDiferencia();
-          numItemsSobrantres();
         }
       } else {
         registrarProducto();
@@ -974,34 +970,44 @@ $(document).ready(function () {
   $("#btnEliminarRegitros").click(function () {
     bodegaElim = $("#eliBodega").val();
 
-    const bodElim = {
-      eliBodega: bodegaElim,
-    };
+    Swal.fire({
+      title: "¿Desea eliminar los registros de la bodega " + bodegaElim + " ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, Eliminar!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const bodElim = {
+          eliBodega: bodegaElim,
+        };
 
-    $.post("eliminarRegistrosTablas.php", bodElim, function (resp) {
-      if (resp == "ok") {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "tablas limpiadas .. ya puede cargar inventario",
-          showConfirmButton: false,
-          timer: 3000,
+        $.post("eliminarRegistrosTablas.php", bodElim, function (resp) {
+          if (resp == "ok") {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "tablas limpiadas .. ya puede cargar inventario",
+              showConfirmButton: false,
+              timer: 3000,
+            });
+
+            listarRegistros();
+            $("#inv").DataTable().ajax.reload(null, false);
+            $("#eliBodega").val("");
+          }
         });
-
-        listarRegistros();
-        $("#inv").DataTable().ajax.reload(null, false);
-
-        $("#eliBodega").val("");
       }
     });
-  });
+  }); // fin boton eliminar registro de la tablas
 
-  function listarEstantes() {
+  function listarSobrantes() {
     let bodegaRegEst = $("#bodegaRegEst").val();
     let pasilloRegEst = $("#pasilloRegEst").val();
 
     $.ajax({
-      url: "consultaEstantes.php",
+      url: "consultaSobrantes.php",
       type: "POST",
       data: {
         bodegaRegEst: bodegaRegEst,
@@ -1011,22 +1017,22 @@ $(document).ready(function () {
         registros = JSON.parse(response);
         console.log(registros);
         let template = "";
-
+        let vlrFormateado = formato.format(vlrTomado);
         registros.forEach((regist) => {
           template += `
           <tr >
           <td>${regist.pasillo}</td>
-          <td>${regist.estante}</td>     
-      
+          <td>${regist.estante}</td>
+          <td>${regist.lote}</td>
+           
+              
           </tr>
            `;
         });
 
         $("#tblPasilloEstantes").html(template);
-
         // console.log(registros);
       },
     });
   }
-  // listarEstantes();
 }); // fin del ready

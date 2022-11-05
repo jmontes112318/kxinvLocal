@@ -194,7 +194,7 @@ if (!isset($_SESSION['usuario'])) {
                 '
                                                           
                   <li class="nav-item">
-                  <a class="nav-link" id="custom-content-below-ubicaciones-tab" data-toggle="pill" href="#custom-content-below-ubicaciones" role="tab" aria-controls="custom-content-below-ubicaciones" aria-selected="false">Ubicaciones Inv</a>
+                  <a class="nav-link" id="custom-content-below-sobrantesFaltantes-tab" data-toggle="pill" href="#custom-content-below-sobrantesFaltantes" role="tab" aria-controls="custom-content-below-sobrantesFaltantes" aria-selected="false">Sobrantes & Faltantes</a>
                   </li>
                                 
                                 
@@ -1505,7 +1505,7 @@ if (!isset($_SESSION['usuario'])) {
             <!-- -----------------------------  lOCALIZACIONES CON REGISTROS-------------------------- -->
             <!-- ------------------------------------------------------------------------------------- -->
 
-            <div class="tab-pane fade" id="custom-content-below-ubicaciones" role="tabpanel" aria-labelledby="custom-content-below-ubicaciones-tab">
+            <div class="tab-pane fade" id="custom-content-below-sobrantesFaltantes" role="tabpanel" aria-labelledby="custom-content-below-sobrantesFaltantes-tab">
               <div class="row my-3">
 
                 <div class="col-sm-12 col-md-6 col-lg-6">
@@ -1516,7 +1516,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="card-header">
                       <div class="row">
                         <div class="col-sm-12 col-md-4 col-lg-4">
-                          <h3 class="card-title">Ubicaciones Picking</h3>
+                          <h3 class="card-title">Productos Sobrantes</h3>
                         </div>
 
                         <div class="col-sm-12 col-md-8 col-lg-8">
@@ -1554,13 +1554,17 @@ if (!isset($_SESSION['usuario'])) {
                         <thead>
                           <tr>
 
-                            <th>Pasillo</th>
-                            <th>Estante</th>
-                            <th>Registros</th>
+                            <th>codigo</th>
+                            <th>Descripcion</th>
+                            <th>Stock</th>
+                            <th>Cant_ingresada</th>
+                            <th>Diferencia</th>
+                            <th>Valor Diferencia</th>
+                            <th>ubicacion</th>
 
                           </tr>
                         </thead>
-                        <tbody id="tblPasilloEstantes">
+                        <tbody id="tblSobrantes">
 
                         </tbody>
                       </table>
@@ -1622,7 +1626,7 @@ if (!isset($_SESSION['usuario'])) {
                           <h5 class="card-title m-0">Inconsistencias por Lote</h5>
                         </div>
                         <div class="card-body">
-                          <form id="frmInconsistencias" action="http://localhost:8080/kxinv/reporteInconsistencias.php" target="_blank" method="POST" autocomplete="off">
+                          <form id="frmInconsistencias" action="http://localhost:8080/kxinvLocal/reporteInconsistencias.php" target="_blank" method="POST" autocomplete="off">
 
                             <div class="row">
                               <div class="form-group col-xs-12 col-md-4 col-lg-4">
@@ -1697,7 +1701,7 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="card-body">
                           <div class="row">
                             <div class="col-lg-6">
-                              <form action="http://localhost:8080/kxinv/reporteIncoXcantidadSobr.php" target="_blank" autocomplete="off" method="post">
+                              <form action="http://localhost:8080/kxinvLocal/reporteIncoXcantidadSobr.php" target="_blank" autocomplete="off" method="post">
                                 <p class="card-text">Productos Sobrante</p>
                                 <button type="submit" class="btn btn-outline-primary">Imprimir Sobrantes</button>
                               </form>

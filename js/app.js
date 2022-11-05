@@ -1021,18 +1021,62 @@ $(document).ready(function () {
         registros.forEach((regist) => {
           template += `
           <tr >
-          <td>${regist.pasillo}</td>
-          <td>${regist.estante}</td>
-          <td>${regist.lote}</td>
+          <td>${regist.codigo}</td>
+          <td>${regist.descripcion}</td>
+          <td>${regist.stock}</td>
+          <td>${regist.ingresado}</td>
+          <td>${regist.diferencia}</td>
+          <td>${formato.format(regist.valorDif)}</td>
+          <td>${regist.ubicacion}</td>
            
               
           </tr>
            `;
         });
 
-        $("#tblPasilloEstantes").html(template);
+        $("#tblSobrantes").html(template);
         // console.log(registros);
       },
     });
   }
+
+listarSobrantes();
+  function listarFaltantes() {
+    let bodegaRegEst = $("#bodegaRegEst").val();
+    let pasilloRegEst = $("#pasilloRegEst").val();
+
+    $.ajax({
+      url: "consultaFaltantes.php",
+      type: "POST",
+      data: {
+        bodegaRegEst: bodegaRegEst,
+        pasilloRegEst: pasilloRegEst,
+      },
+      success: function (response) {
+        registros = JSON.parse(response);
+        console.log(registros);
+        let template = "";
+        let vlrFormateado = formato.format(vlrTomado);
+        registros.forEach((regist) => {
+          template += `
+          <tr >
+          <td>${regist.codigo}</td>
+          <td>${regist.descripcion}</td>
+          <td>${regist.stock}</td>
+          <td>${regist.ingresado}</td>
+          <td>${regist.diferencia}</td>
+          <td>${formato.format(regist.valorDif)}</td>
+          <td>${regist.ubicacion}</td>
+           
+              
+          </tr>
+           `;
+        });
+
+        $("#tblFaltantes").html(template);
+        // console.log(registros);
+      },
+    });
+  }
+  listarFaltantes();
 }); // fin del ready

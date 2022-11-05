@@ -1590,13 +1590,13 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
             <div class="row ">
               <div class="col-sm-12 col-md-4 col-lg-4 ">
                 <div class="input-group input-group-sm ">
-                  <input type="text" id="bodegaRegEst" name="bodegaRegEst" class="form-control " placeholder="Bodega">
+                  <input type="text" id="bodProductFaltantes" name="bodProductFaltantes" class="form-control " placeholder="Bodega">
                 </div>
               </div>
 
               <div class="col-sm-12 col-md-4 col-lg-4 ">
                 <div class="input-group input-group-sm ">
-                  <input type="text" id="pasilloregEst" name="pasilloRegEst" class="form-control " placeholder="Pasillo">
+                  <input type="text" id="pasProductFaltantes" name="pasProductFaltantes" class="form-control " placeholder="Pasillo">
                 </div>
               </div>
 
@@ -1631,7 +1631,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
 
             </tr>
           </thead>
-          <tbody id="tblSobrantes">
+          <tbody id="tblFaltantes">
 
           </tbody>
         </table>

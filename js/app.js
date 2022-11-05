@@ -222,7 +222,6 @@ $(document).ready(function () {
       $("#inv").DataTable().ajax.reload(null, false);
       limpiarFrmTomaInv();
       $("#buscarLote").val("");
-      
     });
   }
 
@@ -244,10 +243,14 @@ $(document).ready(function () {
           )
         ) {
           registrarProducto();
-          
         }
       } else {
         registrarProducto();
+        numInconsistencia();
+        ValorRegistrado();
+        numFaltantes();
+        valorDiferencia();
+        numItemsSobrantres();
       }
     });
   });
@@ -389,9 +392,6 @@ $(document).ready(function () {
         numFaltantes();
         valorDiferencia();
         numItemsSobrantres();
-
-     
-       
       }
 
       $ventanaModal.modal("hide");
@@ -971,19 +971,18 @@ $(document).ready(function () {
     bodegaElim = $("#eliBodega").val();
 
     Swal.fire({
-      title: "¿Desea eliminar los registros de la bodega "+bodegaElim+" ?",
+      title: "¿Desea eliminar los registros de la bodega " + bodegaElim + " ?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, Eliminar!",
     }).then((result) => {
-      if (result.isConfirmed) {     
-    
+      if (result.isConfirmed) {
         const bodElim = {
           eliBodega: bodegaElim,
         };
-    
+
         $.post("eliminarRegistrosTablas.php", bodElim, function (resp) {
           if (resp == "ok") {
             Swal.fire({
@@ -993,7 +992,7 @@ $(document).ready(function () {
               showConfirmButton: false,
               timer: 3000,
             });
-    
+
             listarRegistros();
             $("#inv").DataTable().ajax.reload(null, false);
             $("#eliBodega").val("");
@@ -1001,7 +1000,6 @@ $(document).ready(function () {
         });
       }
     });
-    
   }); // fin boton eliminar registro de la tablas
 
   function listarSobrantes() {
@@ -1023,23 +1021,18 @@ $(document).ready(function () {
         registros.forEach((regist) => {
           template += `
           <tr >
-          <td>${regist.codigo}</td>
-          <td>${regist.descripcion}</td>
-          <td>${regist.stock}</td>
-          <td>${regist.ingresado}</td>
-          <td>${regist.diferencia}</td>
-          <td>${formato.format(regist.valorDif)}</td>
-          <td>${regist.ubicacion}</td>
+          <td>${regist.pasillo}</td>
+          <td>${regist.estante}</td>
+          <td>${regist.lote}</td>
            
               
           </tr>
            `;
         });
 
-        $("#tblSobrantes").html(template);
+        $("#tblPasilloEstantes").html(template);
         // console.log(registros);
       },
     });
   }
-  listarSobrantes();
 }); // fin del ready

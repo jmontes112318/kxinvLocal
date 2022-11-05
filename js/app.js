@@ -970,27 +970,40 @@ $(document).ready(function () {
   $("#btnEliminarRegitros").click(function () {
     bodegaElim = $("#eliBodega").val();
 
-    const bodElim = {
-      eliBodega: bodegaElim,
-    };
-
-    $.post("eliminarRegistrosTablas.php", bodElim, function (resp) {
-      if (resp == "ok") {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "tablas limpiadas .. ya puede cargar inventario",
-          showConfirmButton: false,
-          timer: 3000,
+    Swal.fire({
+      title: "¿Desea eliminar los registros de la bodega "+bodegaElim+" ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, Eliminar!",
+    }).then((result) => {
+      if (result.isConfirmed) {     
+    
+        const bodElim = {
+          eliBodega: bodegaElim,
+        };
+    
+        $.post("eliminarRegistrosTablas.php", bodElim, function (resp) {
+          if (resp == "ok") {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "tablas limpiadas .. ya puede cargar inventario",
+              showConfirmButton: false,
+              timer: 3000,
+            });
+    
+            listarRegistros();
+            $("#inv").DataTable().ajax.reload(null, false);
+            $("#eliBodega").val("");
+          }
         });
-
-        listarRegistros();
-        $("#inv").DataTable().ajax.reload(null, false);
-        $("#eliBodega").val("");
       }
     });
-  });
-setTimeout
+    
+  }); // fin boton eliminar registro de la tablas
+
   // function listarEstantes() {
   //   let bodegaRegEst = $("#bodegaRegEst").val();
   //   let pasilloRegEst = $("#pasilloRegEst").val();

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-  header('location:login/login.php');
+    header('location:login/login.php');
 }
 
 ?>
@@ -128,95 +128,95 @@ if (!isset($_SESSION['usuario'])) {
               </li>
 
               <?php
-              if ($_SESSION['perfil'] == 'Administrador' ||  $_SESSION['perfil'] == 'Auditor') {
-                echo
-                '
-                                                          
+if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
+    echo
+        '
+
                 <li class="nav-item">
                 <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Gestion de Inventario</a>
                 </li>
-                                                                          
-                                                          
-                                                          ';
-              }
 
-              ?>
+
+                                                          ';
+}
+
+?>
 
 
               <?php
-              if ($_SESSION['perfil'] == 'Administrador' ||  $_SESSION['perfil'] == 'Auditor') {
-                echo
-                '
+if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
+    echo
+        '
 
                 <li class="nav-item">
                 <a class="nav-link" id="custom-content-below-inventario-tab" data-toggle="pill" href="#custom-content-below-inventario" role="tab" aria-controls="custom-content-below-inventario" aria-selected="false">Inventario</a>
                 </li>
-                                                                              
-                                                                              
-                ';
-              }
 
-              ?>
+
+                ';
+}
+
+?>
 
               <?php
-              if ($_SESSION['perfil'] == 'Administrador') {
-                echo
-                '
+if ($_SESSION['perfil'] == 'Administrador') {
+    echo
+        '
 
                 <li class="nav-item">
                 <a class="nav-link" id="custom-content-below-usuario-tab" data-toggle="pill" href="#custom-content-below-usuario" role="tab" aria-controls="custom-content-below-usuario" aria-selected="false">Gestion Usuarios</a>
                 </li>
-                                                                              
-                                                                              
-                ';
-              }
 
-              ?>
+
+                ';
+}
+
+?>
 
               <?php
-              if ($_SESSION['perfil'] == 'Administrador' ||  $_SESSION['perfil'] == 'Auditor') {
-                echo
-                '
-                                                                
+if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
+    echo
+        '
+
                     <li class="nav-item">
                     <a class="nav-link" id="custom-content-below-informacionInv-tab" data-toggle="pill" href="#custom-content-below-informacionInv" role="tab" aria-controls="custom-content-below-informacionInv" aria-selected="false">Generalidades</a>
                     </li>
 
 
                     ';
-              }
+}
 
-              ?>
+?>
 
               <?php
-              if ($_SESSION['perfil'] == 'Administrador' ||  $_SESSION['perfil'] == 'Auditor') {
-                echo
-                '
-                                                          
+if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
+    echo
+        '
+
                   <li class="nav-item">
                   <a class="nav-link" id="custom-content-below-sobrantesFaltantes-tab" data-toggle="pill" href="#custom-content-below-sobrantesFaltantes" role="tab" aria-controls="custom-content-below-sobrantesFaltantes" aria-selected="false">Sobrantes & Faltantes</a>
                   </li>
-                                
-                                
-                  ';
-              }
 
-              ?>
+
+                  ';
+}
+
+?>
 
               <?php
-              if ($_SESSION['perfil'] == 'Administrador' ||  $_SESSION['perfil'] == 'Auditor') {
-                echo
-                '
-                                                          
+if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
+    echo
+        '
+
                   <li class="nav-item">
                   <a class="nav-link" id="custom-content-below-reporte-tab" data-toggle="pill" href="#custom-content-below-reporte" role="tab" aria-controls="custom-content-below-reporte" aria-selected="false">Reportes</a>
                   </li>
-                                
-                                
-                  ';
-              }
 
-              ?>
+
+                  ';
+}
+
+?>
 
 
             </ul>
@@ -896,7 +896,7 @@ if (!isset($_SESSION['usuario'])) {
                           </select>
                         </div>
                       </div>
-                   
+
                     </div> -->
 
 
@@ -1549,56 +1549,108 @@ if (!isset($_SESSION['usuario'])) {
 
                     </div>
 
-                    <div class="card-body table-responsive p-0" style="height: 300px;">
-                      <table class="table table-head-fixed text-nowrap">
-                        <thead>
-                          <tr>
+                          <div class="card-body table-responsive p-0" style="height: 500px;">
+                            <table class="table table-head-fixed text-nowrap table-sm">
+                              <thead>
+                                <tr>
 
-                            <th>codigo</th>
-                            <th>Descripcion</th>
-                            <th>Stock</th>
-                            <th>Cant_ingresada</th>
-                            <th>Diferencia</th>
-                            <th>Valor Diferencia</th>
-                            <th>ubicacion</th>
+                                  <th>codigo</th>
+                                  <th>Descripcion</th>
+                                  <th>Stock</th>
+                                  <th>Cant_ingresada</th>
+                                  <th>Diferencia</th>
+                                  <th>Valor Diferencia</th>
+                                  <th>ubicacion</th>
 
-                          </tr>
-                        </thead>
-                        <tbody id="tblSobrantes">
+                                </tr>
+                              </thead>
+                              <tbody id="tblSobrantes">
 
-                        </tbody>
-                      </table>
-                    </div>
+                              </tbody>
+                            </table>
+                          </div>
 
 
-                  </div>
+                        </div>
 
+                      </div>
+
+                      <div class="col-sm-12 col-md-6 col-lg-6">
+
+                      <div class="card">
+
+
+      <div class="card-header">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-4">
+            <h3 class="card-title">Productos Falatantes</h3>
+          </div>
+
+          <div class="col-sm-12 col-md-8 col-lg-8">
+            <div class="row ">
+              <div class="col-sm-12 col-md-4 col-lg-4 ">
+                <div class="input-group input-group-sm ">
+                  <input type="text" id="bodegaRegEst" name="bodegaRegEst" class="form-control " placeholder="Bodega">
                 </div>
-
-                <div class="col-sm-12 col-md-6 col-lg-6">
-
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        Direcciones de Original
-                      </h3>
-                    </div>
-
-                    <div class="card-body">
-
-
-                    </div>
-
-
-                  </div>
-
-
-                </div>
-
-
               </div>
 
+              <div class="col-sm-12 col-md-4 col-lg-4 ">
+                <div class="input-group input-group-sm ">
+                  <input type="text" id="pasilloregEst" name="pasilloRegEst" class="form-control " placeholder="Pasillo">
+                </div>
+              </div>
+
+              <!-- <div class="col-sm-12 col-md-4 col-lg-4 ">
+                <div class="input-group input-group-sm ">
+                  <input type="text" name="table_search" class="form-control " placeholder="Estante">
+                </div>
+              </div> -->
+
+
+
             </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card-body table-responsive p-0" style="height: 500px;">
+        <table class="table table-head-fixed text-nowrap table-sm">
+          <thead>
+            <tr>
+
+              <th>codigo</th>
+              <th>Descripcion</th>
+              <th>Stock</th>
+              <th>Cant_ingresada</th>
+              <th>Diferencia</th>
+              <th>Valor Diferencia</th>
+              <th>ubicacion</th>
+
+            </tr>
+          </thead>
+          <tbody id="tblSobrantes">
+
+          </tbody>
+        </table>
+      </div>
+
+
+      </div>
+
+
+
+
+
+
+                </div>
+
+
+              </div> 
+
+            </div> 
 
 
 

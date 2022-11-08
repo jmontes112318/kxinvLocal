@@ -23,7 +23,7 @@ if (isset($_POST['bodega'])) {
         $codigo = $row['codigo'];
         $lote = $row['lote'];
         $fechavto = $row['fecha_vencimiento'];
-        $descripcion = $row['descripcion'];
+        $descripcion = mysqli_real_escape_string($connection,$row['descripcion']);
         $stock = $row['stock'];
         $costo_und = $row['costo_compra'];
         $ubicacion = $row['ubicacion_1'];
@@ -31,6 +31,7 @@ if (isset($_POST['bodega'])) {
         $pasillo = $row['pasillo'];
         $estante = $row['estante'];
         $alterno = $row['alterno'];
+        
 
         $insertValues[] = "( '$bodega', '$codigo','$lote','$fechavto', '$descripcion', $stock, $costo_und,  '$ubicacion', '$ubicacion2', '$pasillo', '$estante', '$alterno')";
     }

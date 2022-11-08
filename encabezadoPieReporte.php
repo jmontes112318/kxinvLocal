@@ -1,5 +1,8 @@
 <?php
+
 require('fpdf/fpdf.php');
+
+
 
 class PDF extends FPDF
 {
@@ -15,6 +18,7 @@ class PDF extends FPDF
         // Título
         $this->SetX(140);
         $this->Cell("10", "10", "Hoja De Inconsistencias ", 0, 0, "C");
+       
         // fecha
         $this->SetFont("Arial", "", "10");;
         $this->Cell("190", "10", date("d/m/Y"), 0, 1, "C");

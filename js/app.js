@@ -537,7 +537,7 @@ $(document).ready(function () {
       stock: parseInt($("#nstock").val()),
       cantidad: parseInt($("#ncantidad").val()),
       ubicacion: $("#nubicacion").val(),
-      costo: parseInt($("#ncosto").val()),
+      costo: parseFloat($("#ncosto").val()),
     };
 
     $.post("registrarLote.php", datosPos, function (response) {
@@ -1021,12 +1021,12 @@ $(document).ready(function () {
         registros.forEach((regist) => {
           template += `
           <tr >
-          <td>${regist.codigo}</td>
-          <td>${regist.descripcion}</td>
           <td>${regist.stock}</td>
           <td>${regist.ingresado}</td>
           <td>${regist.diferencia}</td>
           <td>${formato.format(regist.valorDif)}</td>
+          <td>${regist.codigo}</td>
+          <td>${regist.descripcion}</td>        
           <td>${regist.ubicacion}</td>
            
               
@@ -1060,12 +1060,12 @@ listarSobrantes();
         registros.forEach((regist) => {
           template += `
           <tr >
-          <td>${regist.codigo}</td>
-          <td>${regist.descripcion}</td>
           <td>${regist.stock}</td>
           <td>${regist.ingresado}</td>
           <td>${regist.diferencia}</td>
           <td>${formato.format(regist.valorDif)}</td>
+          <td>${regist.codigo}</td>
+          <td>${regist.descripcion}</td>         
           <td>${regist.ubicacion}</td>
            
               

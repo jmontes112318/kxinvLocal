@@ -829,7 +829,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                           <div class="input-group">
                             <input type="number" class="form-control" id="nstock" name="nstock" value="0" hidden />
                             <input type="text" class="form-control" id="nubicacion" name="nubicacion" hidden />
-                            <input type="number" class="form-control" id="ncosto" name="ncosto" hidden />
+                            <input type="number" class="form-control" id="ncosto" name="ncosto"  />
                             <input type="text" class="form-control" id="npasillo" name="npasillo" hidden />
                             <input type="text" class="form-control" id="nestante" name="nestante" hidden />
 
@@ -1553,14 +1553,13 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                             <table class="table table-head-fixed text-nowrap table-sm">
                               <thead>
                                 <tr>
-
-                                  <th>codigo</th>
-                                  <th>Descripcion</th>
                                   <th>Stock</th>
-                                  <th>Cant_ingresada</th>
+                                  <th>Ingresado</th>
                                   <th>Diferencia</th>
                                   <th>Valor Diferencia</th>
-                                  <th>ubicacion</th>
+                                  <th>codigo</th>
+                                  <th>Descripcion</th>                                
+                                  <th>Ubicacion</th>
 
                                 </tr>
                               </thead>
@@ -1620,14 +1619,13 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
         <table class="table table-head-fixed text-nowrap table-sm">
           <thead>
             <tr>
-
-              <th>codigo</th>
-              <th>Descripcion</th>
               <th>Stock</th>
-              <th>Cant_ingresada</th>
+              <th>Ingresado</th>
               <th>Diferencia</th>
               <th>Valor Diferencia</th>
-              <th>ubicacion</th>
+              <th>codigo</th>
+              <th>Descripcion</th>            
+              <th>Ubicacion</th>
 
             </tr>
           </thead>
@@ -1678,7 +1676,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                           <h5 class="card-title m-0">Inconsistencias por Lote</h5>
                         </div>
                         <div class="card-body">
-                          <form id="frmInconsistencias" action="http://localhost:8080/kxinvLocal/reporteInconsistencias.php" target="_blank" method="POST" autocomplete="off">
+                          <form id="frmInconsistencias" action="http://10.120.120.243:8080/kxinv/reporteInconsistencias.php" target="_blank" method="POST" autocomplete="off">
 
                             <div class="row">
                               <div class="form-group col-xs-12 col-md-4 col-lg-4">
@@ -1719,7 +1717,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                           <h5 class="card-title m-0">Faltantes por Lote</h5>
                         </div>
                         <div class="card-body">
-                          <form action="http://localhost:8080/kxinv/reporteFaltantes.php" target="_blank" autocomplete="off" method="post">
+                          <form action="http://10.120.120.243:8080/kxinv/reporteFaltantes.php" target="_blank" autocomplete="off" method="post">
                             <p class="card-text">Productos para realizar ajuste de Salida, lote faltante Vs inv fisico o producto faltante</p>
                             <button type="submit" class="btn btn-outline-danger">Imprimir Faltantes</button>
                           </form>
@@ -1738,7 +1736,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                           <h5 class="card-title m-0">Sobrantes por Lote</h5>
                         </div>
                         <div class="card-body">
-                          <form action="http://localhost:8080/kxinv/reporteSobrantes.php" target="_blank" autocomplete="off" method="post">
+                          <form action="http://10.120.120.243:8080/kxinv/reporteSobrantes.php" target="_blank" autocomplete="off" method="post">
                             <p class="card-text">Productos para realizar ajuste de Entrada, lote sobrante Vs stock en el sistema o producto sobrante</p>
                             <button type="submit" class="btn btn-outline-warning">Imprimir Sobrantes</button>
                           </form>
@@ -1753,7 +1751,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                         <div class="card-body">
                           <div class="row">
                             <div class="col-lg-6">
-                              <form action="http://localhost:8080/kxinvLocal/reporteIncoXcantidadSobr.php" target="_blank" autocomplete="off" method="post">
+                              <form action="http://10.120.120.243:8080/kxinv/reporteIncoXcantidadSobr.php" target="_blank" autocomplete="off" method="post">
                                 <p class="card-text">Productos Sobrante</p>
                                 <button type="submit" class="btn btn-outline-primary">Imprimir Sobrantes</button>
                               </form>
@@ -1761,7 +1759,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                             </div>
                             <div class="col-lg-6">
 
-                              <form action="http://localhost:8080/kxinv/reporteIncoXcantidadFalt.php" target="_blank" autocomplete="off" method="post">
+                              <form action="http://10.120.120.243:8080/kxinv/reporteIncoXcantidadFalt.php" target="_blank" autocomplete="off" method="post">
                                 <p class="card-text">Productos Faltante</p>
                                 <button type="submit" class="btn btn-outline-danger">Imprimir faltantes</button>
                               </form>

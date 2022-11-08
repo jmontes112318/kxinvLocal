@@ -12,7 +12,7 @@ $query = "SELECT codigo,descripcion,sum(stock) AS stk ,SUM(cant_ingresada) as in
 FROM productos
 GROUP BY codigo
 HAVING inco >0
-ORDER BY ubicacion";
+ORDER BY valor_inco DESC";
 
 $result = mysqli_query($connection, $query);
 

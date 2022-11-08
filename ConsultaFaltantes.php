@@ -9,7 +9,7 @@ $query = "SELECT codigo,descripcion,sum(stock) AS stk ,SUM(cant_ingresada) as in
 FROM productos
 GROUP BY codigo
 HAVING inco <0
-ORDER BY valor_inco DESC";
+ORDER BY valor_inco ASC";
     $result = mysqli_query($connection, $query);
 
 } elseif (!empty($_POST['bodProductFaltantes']) && empty($_POST['pasProductFaltantes'])) {

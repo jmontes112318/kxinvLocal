@@ -24,6 +24,8 @@ $pdf->AddPage();
 
 // $pdf->Cell("150", "10", " Por Lote ", 1, 0, "C");
 
+$totalUnidadesSobrantes=0;
+
 
 while ($fila = $result->fetch_assoc()) {
 
@@ -38,8 +40,13 @@ while ($fila = $result->fetch_assoc()) {
     $pdf->Cell("25", "5", $fila['alterno'], 1, 0, "R");
     $pdf->Cell("15", "5", $fila['ubicacion'], 1, 0, "R");
     $pdf->Cell("20", "5", $fila['ubicacion2'], 1, 1, "R");
+    $totalUnidadesSobrantes+=$fila['inco'];
 }
+$pdf->SetFontSize(14);
+$pdf->Cell("64", "10", 'Observacion', 0);
+$pdf->Cell("20", "10", 'total unidades ');
+$pdf->Cell("120", "10", $totalUnidadesSobrantes,0);
 
 
 $pdf->Output();
-// }
+

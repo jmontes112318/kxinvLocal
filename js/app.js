@@ -85,7 +85,7 @@ $(document).ready(function () {
           Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "Codigo de Barra no exite ",
+            title: "Producto no cargado en inventario",
             showConfirmButton: false,
             timer: 3000,
           });

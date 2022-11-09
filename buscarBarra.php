@@ -14,8 +14,9 @@ if (isset($_POST['barra'])) {
      case when c.codigo like '%-%' THEN 'INSTITUCIONAL' ELSE 'COMERCIAL' END  AS 'bodega'    
     from cot_item c    
     inner join cot_item_alt ca on ca.id_cot_item=c.id    
-    where ca.codigo='$barra' and c.codigo not like '%-%'    
+    where ca.codigo=:barra and c.codigo not like '%-%'    
     order by c.codigo asc ");
+    $consulta->bindParam(':barra', $barra);
     $consulta->execute();
     $data = $consulta->fetchAll(PDO::FETCH_ASSOC);
     // print_r($data);
@@ -23,7 +24,7 @@ if (isset($_POST['barra'])) {
 
     $codigo = $data[0]['codigo'];
 
-    // var_dump($codigo);
+    // // var_dump($codigo);
 
     $query = "SELECT * FROM productos WHERE codigo ='$codigo' AND bodega ='$bodega'";
     $result = mysqli_query($connection, $query);

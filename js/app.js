@@ -1079,4 +1079,52 @@ listarSobrantes();
     });
   }
   listarFaltantes();
+/**
+ * bloque de codigo para cafragar inventario y filtrar invetario por codigo
+ */
+
+
+// validar tipo de archivo a caragar
+
+$("#btnCargarExcel").click(function () {
+  let archivoExcel = $("#archivoExcel").val();
+
+  if (archivoExcel === "") {
+    return Swal.fire({
+      position: "top-end",
+      icon: "error",
+      title: "Seleccione un archivo excel",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+  let formData = new FormData();
+  let excel = $("#archivoExcel")[0].files[0];
+  formData.append("excel", excel);
+  $.ajax({
+    url: "importarArchivoExcel.php",
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function (resp) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Datos Cargados",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      $("#archivoExcel").val("");
+    },
+  });
+  return false;
+});
+
+
+
+
+
+
+
 }); // fin del ready

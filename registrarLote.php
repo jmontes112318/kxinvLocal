@@ -17,10 +17,13 @@ if (isset($_POST['barra'])) {
     $cantidad = $_POST['cantidad'];
     $ubicacion = $_POST['ubicacion'];
     $costo = $_POST['costo'];
+    $bodega = $_POST['bodega'];
+    var_dump($costo);
+    
 
 
-    $query = "INSERT INTO productos(codigo,lote,fechavto,descripcion,stock,costo_und,ubicacion,pasillo,estante,alterno,cant_ingresada)
-              VALUES('$codigo','$lote','$vencimiento','$descripcion',$stock,$costo,'$ubicacion','$pasillo','$estante','$barra',$cantidad)";
+    $query = "INSERT INTO productos(bodega,codigo,lote,fechavto,descripcion,stock,costo_und,ubicacion,pasillo,estante,alterno,cant_ingresada)
+              VALUES('$bodega','$codigo','$lote','$vencimiento','$descripcion',$stock,$costo,'$ubicacion','$pasillo','$estante','$barra',$cantidad)";
 
 
     $result = mysqli_query($connection, $query);

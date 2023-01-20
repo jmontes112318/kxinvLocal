@@ -325,7 +325,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                         <div class="col-lg-4 col-xs-7">
                           <div class="form-group">
                             <label for="cantidad">Cantidad</label>
-                            <input type="number" class="form-control" id="cantidad" name="cantidad" />
+                            <input type="number" class="form-control" min="1" max="999999" id="cantidad" name="cantidad" required />
                           </div>
                         </div>
                         <!-- <div class="col-lg-2">
@@ -369,7 +369,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                         </div>
                         <div class="col-lg-4 col-xs-12">
                           <div class="form-group">
-                            <input type="number" class="form-control" id="costoR" name="costoR" disabled />
+                            <input type="number" class="form-control" id="costoR" name="costoR" disabled hidden />
                             <input type="text" class="form-control" id="ubicacionP" name="ubicacionP" disabled hidden />
                           </div>
                         </div>
@@ -870,7 +870,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
 
                         <div class="form-group">
                           <div class="input-group">
-                            <input type="number" class="form-control" id="ncantidad" min="1" name="ncantidad" placeholder="Cantidad" required />
+                            <input type="number" class="form-control" id="ncantidad" min="1" max="999999" name="ncantidad" placeholder="Cantidad" required />
                           </div>
                         </div>
 
@@ -878,9 +878,10 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                           <div class="input-group">
                             <input type="number" class="form-control" id="nstock" name="nstock" value="0" hidden />
                             <input type="text" class="form-control" id="nubicacion" name="nubicacion" hidden />
-                            <input type="number" class="form-control" id="ncosto" name="ncosto"  />
+                            <input type="number" class="form-control" id="ncosto" name="ncosto" hidden />
                             <input type="text" class="form-control" id="npasillo" name="npasillo" hidden />
                             <input type="text" class="form-control" id="nestante" name="nestante" hidden />
+                            <input type="text" class="form-control" id="nbodega" name="nbodega" hidden />
 
                           </div>
                         </div>

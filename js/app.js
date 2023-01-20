@@ -459,10 +459,11 @@ $(document).ready(function () {
     let codigo_modal = $("#ncodigo").val($("#codigo").val());
     let descripcion_modal = $("#ndescripcion").val($("#descripcion").val());
     let ubicacion_modal = $("#nubicacion").val($("#ubicacionP").val());
-    let costo_modal = $("#ncosto").val($("#costoR").val());
+    let costo_modal =$("#ncosto").val(Math.trunc($("#costoR").val()));
     let pasillo_modal = $("#npasillo").val($("#pasilloR").val());
     let estante_modal = $("#nestante").val($("#estanteR").val());
-    let lote_lodal = $("#nlote").val($("#buscarLote").val());
+    let bodega_modal = $("#nbodega").val($("#txtBodegaInv").val());
+    let lote_modal = $("#nlote").val($("#buscarLote").val());
     frmLt.addEventListener("keyup", activarBtnCrearLote);
   });
 
@@ -540,7 +541,8 @@ $(document).ready(function () {
       stock: parseInt($("#nstock").val()),
       cantidad: parseInt($("#ncantidad").val()),
       ubicacion: $("#nubicacion").val(),
-      costo: parseFloat($("#ncosto").val()),
+      costo:parseFloat($("#ncosto").val()).toFixed(),
+      bodega:$("#nbodega").val()
     };
 
     $.post("registrarLote.php", datosPos, function (response) {

@@ -727,6 +727,30 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                 </div>
               </div>
 
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    Cargar inventario general
+                  </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-lg-9">
+                      <input type="file" name="archivoExcel" id="archivoExcel" class="form-control" accept=".csv,.xlsx,xls">
+                    </div>
+                    <div class="col-lg-3">
+                      <button class="btn btn-danger" id="btnCargarExcel">Cargar Archivo Excel</button>
+                    </div>
+
+
+
+                  </div>
+
+                </div>
+              </div>
+
 
 
 

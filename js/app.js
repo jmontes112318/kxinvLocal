@@ -67,6 +67,8 @@ $(document).ready(function () {
   $("#registroInventario").on("change", "input.barra", function (e) {
     let barra = $("#barra").val();
     let bod = $("#txtBodegaInv").val();
+    console.log("barra",barra);
+    console.log("bodega",bod);
 
     let opciones = "";
     $.ajax({
@@ -79,7 +81,7 @@ $(document).ready(function () {
       success: function (response) {
         let product = JSON.parse(response);
         let bandera = product.length;
-        console.log(product);
+        console.log("barra cargado",product);
 
         if (bandera === 0) {
           Swal.fire({
@@ -90,7 +92,8 @@ $(document).ready(function () {
             timer: 3000,
           });
         } else {
-          if (bandera === 1) {
+          if (bandera === 1 && product[0]["lote"]=="") {
+            
             $("#codigo").val(product[0]["codigo"]);
             $("#descripcion").val(product[0]["descripcion"]);
             $("#idlote").val(product[0]["id"]);
@@ -1086,6 +1089,24 @@ listarSobrantes();
 
 // validar tipo de archivo a caragar
 
+$('input[type="file"]').on("change", function () {
+  let ext = $(this).val().split(".").pop();
+
+  if ($(this).val() != "") {
+    if (ext == "xls" || ext == "xlsx" || ext == "csv") {
+    } else {
+      $(this).val("");
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Extencion no permitida",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
+  }
+});
+
 $("#btnCargarExcel").click(function () {
   let archivoExcel = $("#archivoExcel").val();
 
@@ -1120,6 +1141,28 @@ $("#btnCargarExcel").click(function () {
   });
   return false;
 });
+
+
+$("#btnFiltarInventario").click(function () {
+  $.ajax({
+    url: "filtrarCodigosInv.php",
+    type: "POST",   
+    contentType: false,
+    processData: false,
+    success: function (resp) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Datos Filtrados",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      
+    },
+  });
+ 
+});
+
 
 
 

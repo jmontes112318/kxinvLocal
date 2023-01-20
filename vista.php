@@ -690,7 +690,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
 
                               <div class=" form-group col-lg-3 input-group mb-2 input-group-mb">
                                 <span class="input-group-text">Bodega:</span>
-                                <input type="text" class="form-control" id="bodega" placeholder="Bod" required autocomplete="off">
+                                <input type="text" class="form-control" id="bodega" placeholder="Bod"autocomplete="off" required >
                               </div>
 
                               <div class=" form-group col-lg-3 input-group mb-2 input-group-mb">
@@ -727,30 +727,55 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                 </div>
               </div>
 
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    Cargar inventario general
-                  </h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
+              <div class="row">
+                      <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">
+                                Cargar Codigos 
+                              </h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
 
-                  <div class="row">
-                    <div class="col-lg-9">
-                      <input type="file" name="archivoExcel" id="archivoExcel" class="form-control" accept=".csv,.xlsx,xls">
-                    </div>
-                    <div class="col-lg-3">
-                      <button class="btn btn-danger" id="btnCargarExcel">Cargar Archivo Excel</button>
-                    </div>
+                              <div class="row">
+                                <div class="col-lg-9">
+                                  <input type="file" name="archivoExcel" id="archivoExcel" class="form-control" accept=".csv,.xlsx,xls">
+                                </div>
+                                <div class="col-lg-3">
+                                  <button class="btn btn-danger" id="btnCargarExcel">Cargar Archivo Excel</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div><!--fin col 1-->
+
+                      <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">
+                                Filtar
+                              </h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+
+                              <div class="row">
+                              
+                                <div class="col-lg-3">
+                                  <button class="btn btn-danger" id="btnFiltarInventario">Filtrar</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div><!--fin col 1-->
+
+               </div>  <!--fin row-->
 
 
+             
 
-                  </div>
-
-                </div>
-              </div>
-
+             
 
 
 

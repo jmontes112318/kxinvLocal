@@ -9,6 +9,8 @@ if (isset($_POST['barra'])) {
     $barra = $_POST['barra'];
     $bodega = $_POST['bodega'];
 
+  
+
 
     $consulta = $consqlServer->prepare("SELECT DISTINCT c.codigo as codigo, ca.codigo as alterno,
      case when c.codigo like '%-%' THEN 'INSTITUCIONAL' ELSE 'COMERCIAL' END  AS 'bodega'    

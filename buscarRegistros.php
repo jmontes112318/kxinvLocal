@@ -26,6 +26,7 @@ if (!empty($search)) {
             'lote' => $row['lote'],
             'idlote' => $row['id_lote'],
             'cantidad' => $row['cantidad'],
+            'conteo' => $row['conteo'],
             'id' => $row['id'],
         );
     }

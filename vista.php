@@ -113,10 +113,9 @@ if (!isset($_SESSION['usuario'])) {
       <!-- /.content-header -->
 
       <!-- Main content -->
-      <div class="content">
-        <div class="container-fluid">
+      <div class="content max-width">
+        <div class="container max-width">
           <div class="card-body">
-
 
             <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
               <li class="nav-item">
@@ -128,35 +127,35 @@ if (!isset($_SESSION['usuario'])) {
               </li>
 
               <?php
-if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
-    echo
-        '
+                  if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
+                      echo
+                          '
 
-                <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Gestion de Inventario</a>
-                </li>
-
-
-                                                          ';
-}
-
-?>
+                                  <li class="nav-item">
+                                  <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Gestion de Inventario</a>
+                                  </li>
 
 
-              <?php
-if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
-    echo
-        '
+                                                                            ';
+                  }
 
-                <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-inventario-tab" data-toggle="pill" href="#custom-content-below-inventario" role="tab" aria-controls="custom-content-below-inventario" aria-selected="false">Inventario</a>
-                </li>
+                  ?>
 
 
-                ';
-}
+                              <?php
+                if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') {
+                    echo
+                        '
 
-?>
+                                <li class="nav-item">
+                                <a class="nav-link" id="custom-content-below-inventario-tab" data-toggle="pill" href="#custom-content-below-inventario" role="tab" aria-controls="custom-content-below-inventario" aria-selected="false">Inventario</a>
+                                </li>
+
+
+                                ';
+                }
+
+                ?>
 
               <?php
 if ($_SESSION['perfil'] == 'Administrador') {
@@ -238,31 +237,9 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                     <!-- <input type="hidden" id="idRegistro" /> -->
                     <div class="card-body" style="width:100%">
 
-                      <div class="row">
-
-                        <div class="col-4">
-                          <div class="form-group">
-                            <input type="text" class="form-control" id="txtBodegaInv" name="txtBodegaInv" value="<?php echo $_SESSION["bodega"] ?>" disabled />
-                          </div>
-                        </div>
-
-                        <div class="col-4">
-                          <div class="form-group">
-                            <input type="text" class="form-control" id="txtPerfil" name="txtPerfil" value="<?php echo $_SESSION["perfil"] ?>" disabled hidden />
-                          </div>
-                        </div>
-
-                        <div class="col-4">
-                          <div class="form-group">
-                            <!-- <label for="usuario">Usuario</label> -->
-                            <input type="text" class="form-control" id="usuario" value="<?php echo $_SESSION["usuario"] ?>" name="usuario" disabled hidden />
-                          </div>
-                        </div>
-                      </div>
-
 
                       <div class="row">
-                        <div class="col-xs-12 col-lg-4  ">
+                        <div class="col-sm-12 col-lg-4 ">
                           <div class="form-group clearfix">
                             <div class="icheck-primary d-inline">
                               <input type="radio" id="rbPicking" value="picking" name="area">
@@ -273,7 +250,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                           </div>
                         </div>
 
-                        <div class="col-xs-12 col-md-4  col-lg-4 ">
+                        <div class="col-sm-12 col-md-4 col-lg-4 ">
                           <div class="form-group clearfix">
                             <div class="icheck-danger d-inline">
                               <input type="radio" id="rbOriginales" value="originales" name="area">
@@ -374,6 +351,28 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                           </div>
                         </div>
                       </div>
+
+                      <div class="row">
+
+                        <div class="col-xs-12 col-lg-4">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="txtBodegaInv" name="txtBodegaInv" value="<?php echo $_SESSION["bodega"] ?>" disabled />
+                          </div>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-4">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="txtPerfil" name="txtPerfil" value="<?php echo $_SESSION["perfil"] ?>" disabled hidden />
+                          </div>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-4">
+                          <div class="form-group">
+                            <!-- <label for="usuario">Usuario</label> -->
+                            <input type="text" class="form-control" id="usuario" value="<?php echo $_SESSION["usuario"] ?>" name="usuario" disabled hidden />
+                          </div>
+                        </div>
+                        </div>
                       <div class="card-footer">
                         <div class="d-grid gap-2">
                           <button type="submit" class="btn btn-primary">
@@ -732,7 +731,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                         <div class="card">
                             <div class="card-header">
                               <h3 class="card-title">
-                                Cargar Codigos 
+                                Cargar Codigos
                               </h3>
                             </div>
                             <!-- /.card-header -->
@@ -761,7 +760,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                             <div class="card-body">
 
                               <div class="row">
-                              
+
                                 <div class="col-lg-3">
                                   <button class="btn btn-danger" id="btnFiltarInventario">Filtrar</button>
                                 </div>
@@ -773,9 +772,9 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                </div>  <!--fin row-->
 
 
-             
 
-             
+
+
 
 
 
@@ -1573,13 +1572,13 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                           <div class="row ">
                             <div class="col-sm-12 col-md-4 col-lg-4 ">
                               <div class="input-group input-group-sm ">
-                                <input type="text" id="bodegaRegEst" name="bodegaRegEst" class="form-control " placeholder="Bodega">
+                                <input type="text" id="bodegaRegEst" name="bodegaRegEst" class="form-control " placeholder="Bodega" disabled>
                               </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-4 ">
                               <div class="input-group input-group-sm ">
-                                <input type="text" id="pasilloregEst" name="pasilloRegEst" class="form-control " placeholder="Pasillo">
+                                <input type="text" id="pasilloregEst" name="pasilloRegEst" class="form-control " placeholder="Pasillo" disabled>
                               </div>
                             </div>
 
@@ -1588,6 +1587,9 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                                 <input type="text" name="table_search" class="form-control " placeholder="Estante">
                               </div>
                             </div> -->
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <button class="btn btn-warning" id="btnActualizarSobrantes">Actualizar Sobrantes</button>
+                            </div>
 
 
 
@@ -1608,7 +1610,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                                   <th>Diferencia</th>
                                   <th>Valor Diferencia</th>
                                   <th>codigo</th>
-                                  <th>Descripcion</th>                                
+                                  <th>Descripcion</th>
                                   <th>Ubicacion</th>
 
                                 </tr>
@@ -1649,6 +1651,12 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                 </div>
               </div>
 
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <button class="btn btn-danger" id="btnActualizarFaltantes">Actualizar Faltantes</button>
+                    </div>
+
+
               <!-- <div class="col-sm-12 col-md-4 col-lg-4 ">
                 <div class="input-group input-group-sm ">
                   <input type="text" name="table_search" class="form-control " placeholder="Estante">
@@ -1674,7 +1682,7 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
               <th>Diferencia</th>
               <th>Valor Diferencia</th>
               <th>codigo</th>
-              <th>Descripcion</th>            
+              <th>Descripcion</th>
               <th>Ubicacion</th>
 
             </tr>
@@ -1696,9 +1704,9 @@ if ($_SESSION['perfil'] == 'Administrador' || $_SESSION['perfil'] == 'Auditor') 
                 </div>
 
 
-              </div> 
+              </div>
 
-            </div> 
+            </div>
 
 
 

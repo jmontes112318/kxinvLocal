@@ -1044,8 +1044,13 @@ $(document).ready(function () {
       },
     });
   }
+  $("#btnActualizarSobrantes").click(function () {
+    listarSobrantes();
+  });
 
-listarSobrantes();
+// listarSobrantes();
+
+
   function listarFaltantes() {
     let bodegaRegEst = $("#bodegaRegEst").val();
     let pasilloRegEst = $("#pasilloRegEst").val();
@@ -1083,12 +1088,14 @@ listarSobrantes();
       },
     });
   }
-  listarFaltantes();
+
+  $("#btnActualizarFaltantes").click(function () {
+    listarFaltantes();
+  });
+ 
 /**
  * bloque de codigo para cafragar inventario y filtrar invetario por codigo
  */
-
-
 // validar tipo de archivo a caragar
 
 $('input[type="file"]').on("change", function () {
